@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Générateur de mot de passe</title>
+</head>
+<body>
+
+<form>
+    <input type="text" id="taille" name="taille" size="30" placeholder="taille du mot de passe">
+    <br><br>
+</form>
+<button>Generer</button>
+<p id="mdp"></p>
+</body>
+
+<script>
+    function genererMdp(taille) {
+        var password  = '';
+        //liste de caracteres parmi lesquels on peut choisir 
+		var pattern  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()_+=-';
+        //taille de notre pattern
+		var patternLength = pattern.length;
+		for ( var i = 0; i < taille; i++ ) {
+		   password += pattern.charAt(Math.floor(Math.random() * patternLength));
+		}
+		return password;
+    }
+    //recuperer le bouton "generer"
+    var genererBTN = document.querySelector('button');
+    
+    //associer au bouton un evenement pour chaque clic dessus on recupere la valeur du champs taille
+    genererBTN.onclick = function(){
+        var tailleMDP = document.getElementById('taille');
+        document.getElementById('mdp').innerHTML ="<b>"+ genererMdp(tailleMDP.value)+"</b>";
+    }
+    
+
+</script>
+</html> 

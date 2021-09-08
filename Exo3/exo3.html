@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Générateur de citations</title>
+</head>
+<body>
+
+<button>Générer une citation </button>
+<br><br>
+<button id='fermer'> Fermer Pop up </button>
+</body>
+
+<script>
+    // la liste de mes citations
+    var citations = ["On a deux vies. La deuxième commence quand on réalise qu’on n’en a qu’une.", "L’obscurité ne peut pas chasser l’obscurité, seule la lumière le peut. La haine ne peut pas chasser la haine, seul l’amour le peut", "La vie mettra des pierres sur ta route. A toi de décider d’en faire des murs ou des ponts", "La vie, ce n’est pas d’attendre que les orages passent, c’est d’apprendre à danser sous la pluie.", "Nos vies sont pleines de catastrophes qui n’ont jamais eu lieu", "Accepte ce qui est, laisse aller ce qui était, aie confiance en ce qui sera", "S’il y a un problème, il y a une solution. S’il n’y a pas de solution, alors ce n’est pas un problème", "Si vous pouvez le rêver, vous pouvez le faire.", "Ils ne savaient pas que c’était impossible, alors ils l’ont fait.", "J’ai décidé d’être heureux parce que c’est bon pour la santé", "Si vous pensez que l’aventure est dangereuse, essayez la routine, elle est mortelle."]
+    //recuperer le bouton "generer citation"
+    var convertBTN = document.querySelector('button');
+    //recuper le boutton fermer
+    var fermerBTN = document.querySelector('#fermer');
+    
+    //Si on clique sur ce bouton pop up sera fermée
+    fermerBTN.onclick = function(){
+        //On verifie si une pop up est déja ouverte
+        if (typeof pop !== 'undefined') {
+            pop.close();
+        }else{
+            console.log("pas de pop up ouverte");
+        }
+    }
+    
+    //associer au bouton un evenement pour chaque clic dessus on génère un chiffre au hasarad <= taille de mon tableau
+    convertBTN.onclick = function(){
+        var index = Math.floor(Math.random() * citations.length);
+        pop = window.open("", "popup", "width=400, height=200");
+        pop.document.write(citations[index]);
+    }
+    
+
+</script>
+</html> 

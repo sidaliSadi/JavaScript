@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convertisseur de temperature</title>
+</head>
+<body>
+
+<form>
+    <input type="text" id="temperature" name="temperature" size="30" placeholder="entrer ici temperature...">
+    <br><br>
+
+    <p>Convertir vers :</p>
+
+    <div>
+    <input type="radio" id="Celsius" name="temp" value="Celsius">
+    <label for="Celsius" checked>Celsius</label>
+    </div>
+
+    <div>
+    <input type="radio" id="Fahrenheit" name="temp" value="Fahrenheit">
+    <label for="Fahrenheit">Fahrenheit</label>
+    </div>
+</form>
+<button>Convertir</button>
+<p id="temperature_convertie"></p>
+</body>
+
+<script>
+    function conversion(temperature , type) {
+        if (type == "Fahrenheit") {
+            return temperature+" °C == "+((temperature * 9/5) + 32) +" °F";
+            
+        } else {
+            return temperature +" °F == "+ ((temperature - 32) * 5/9 )+" °C";
+        }
+    }
+    //recuperer le bouton "convertir"
+    var convertBTN = document.querySelector('button');
+    
+    
+    //associer au bouton un evenement pour chaque clic dessus on recupere la valeur du champs temperature
+    convertBTN.onclick = function(){
+        var temperature = document.getElementById('temperature').value;
+        if (temperature) {
+            //recuperer vers quoi on veut la convertir
+            var versQuoi = document.querySelector('input[name="temp"]:checked').value;
+            console.log(versQuoi);
+            document.getElementById('temperature_convertie').innerHTML ="<b>"+ conversion(temperature, versQuoi)+"</b>";
+        } else {
+            document.getElementById('temperature_convertie').innerHTML ="<b>"+ " Veuillez introduire une temperature "+"</b>";
+        }
+    }
+    
+
+</script>
+</html> 

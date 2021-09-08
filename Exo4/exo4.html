@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dark mode</title>
+<style>
+    body {
+        padding: 50px;
+        font-size: 45px;
+    }
+    .light-mode {
+      background-color: white;
+      color: black;
+    }
+    
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+</style>
+</head>
+<body>
+
+    <h2>Dark/Light Mode</h2>
+    <p>Veuillez cliquez sur l'un des boutons en dessous pour choisir votre theme.</p>
+    <button id="dark">Dark Mode</button>
+    <br><br>
+    <button id="light"> Light Mode</button>
+</body>
+
+<script>
+    //recuperer le bouton DarkMode
+    var dark = document.querySelector('#dark');
+
+    //recuperer le bouton lightMode
+    var light = document.querySelector('#light');
+
+    //si on clique sur le bouton dark on applique le style css dark-mode
+    dark.onclick = function(){
+        var body = document.body;
+        body.classList.remove('light-mode');
+        body.classList.toggle("dark-mode");
+    }
+
+    //si on clique sur le bouton light on applique le style css light-mode
+    light.onclick = function(){
+        var body = document.body;
+        body.classList.remove('dark-mode');
+        body.classList.toggle("light-mode");
+        console.log("okkk")
+    }
+</script>
+</html> 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu Burger</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(175, 33, 33);
+  position: relative;
+}
+
+
+.topnav #uls {
+  display: none;
+}
+
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  display: block;
+}
+
+
+.topnav a.icon {
+  background: black;
+  display: block;
+}
+
+
+</style>
+</head>
+<body>
+     <!-- charger licone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Navigation principale -->
+    <div class="topnav">
+        <a href="#acceuil" class="active">Hamburger menu</a>
+        <!--  links par defaut cachés -->
+        <div id="uls">
+            <a href="#profile">Profil</a>
+            <a href="#contact">Contact</a>
+            <a href="#actualites">Actualites</a>
+        </div>
+
+        <a class="icon" onclick="showHide()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div> 
+</body>
+
+<script>
+    
+function showHide() {
+    //recuperer la liste des liens
+  var liens = document.getElementById("uls");
+  //si les lien sont affichés on les cache sinon on les affiche
+  if (liens.style.display === "block") {
+    liens.style.display = "none";
+  } else {
+    liens.style.display = "block";
+  }
+} 
+
+</script>
+</html> 
